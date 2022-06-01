@@ -12,8 +12,12 @@ function App() {
   let [fetchedData, updateFetchedData] = useState([])
   let { info, results } = fetchedData
   let [search, setSearch] = useState("")
+  let [status, setStatus] = useState("")
+  let [gender, setGender] = useState("")
+  let [species, setSpecies] = useState("")
 
-  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`;
+
+  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
 
   useEffect(() => {
     (async function () {
@@ -30,7 +34,7 @@ function App() {
 
       <div className="container">
         <div className="row">
-          <Filters />
+          <Filters setGender={setGender} setSpecies={setSpecies} setStatus={setStatus} setPageNumber={setPageNumber} />
           <div className="col-8">
             <div className="row">
               <Cards results={results} />
