@@ -8,7 +8,7 @@ const Cards = ({ results }) => {
 
     if (results) {
         display = results.map(x => {
-            let { id, name, image, location, status } = x
+            let { id, name, image, location, status, species } = x
             return (
                 <div key={id} className="col-4 mb-4 position-relative">
                     <div className={styles.cards}>
@@ -17,6 +17,8 @@ const Cards = ({ results }) => {
                             <div className="fs-4 fw-bold mb-4">{name}</div>
                             <div className="fs-6">Last Location:</div>
                             <div className="fs-5">{location.name}</div>
+                            <div className="fs-6">Specie:</div>
+                            <div className="fs-5">{species}</div>
                         </div>
                     </div>
                     {(() => {
